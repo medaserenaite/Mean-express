@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Survey Form</title>
+</head>
+
+<style>
+#box{
+    background-color: rgba(128, 128, 128, 0.699);
+    box-shadow: 4px 4px 4px;
+    padding:50px;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+</style>
+
+<body>
+<div id="box">
+    <h3>Submitted Information:</h3>
+    <h5>Name: <%= user.name %> </h5>
+    <h5>Dojo Location: <%= user.location %> </h5>
+    <h5>Favorite Language: <%= user.language %> </h5>
+    <h5>Comment: <%= user.comment %> </h5>
+    <a href="/"><button class="btn btn-primary">back</button></a>
+</div>
+</body>
+</html>

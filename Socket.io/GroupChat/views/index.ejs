@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Group Chat</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+
+        $(document).ready(function (){
+            console.log('ready');
+            var socket = io.connect();
+
+            $('#join').click(function () {
+                var newuser = 
+                $('#name').val();
+                socket.emit("joined", newuser);
+                $('#name').val('');
+               
+            });
+            socket.on('newuser', function(name){
+                console.log(name);
+            })
+            $('#send').click(function(){
+                var message = $('#message').val();
+                socket.emit('newMessage', message)
+                $('#message').val("");
+            })
+            // socket.on("show_chat", function() {
+            //     if(socket.emit("button_click")){
+            //         document.getElementById("card").style.visibility = "hidden";
+            //         document.getElementById("chat").style.visibility = "visible";
+                    
+            //     };
+            // });
+        });
+    </script>
+
+<style>
+    .card{
+        width: 400px;
+        height:300px;
+        margin:auto;
+        margin-top: 30px;
+        background-color: blanchedalmond;
+        border-radius: 25px;
+    }
+    button{
+        width:100px;
+        margin:70px;
+    }
+    #chat{
+        background-color: red;
+        width: 600px;
+        height: 600px;
+        visibility: hidden;
+    }
+</style>
+
+<body>
+    <div class="container">
+            <div id="card" class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Your Name:</h5>
+                    <input type="text" class="form-control" placeholder="First name" name="name">
+                    <button id="join" type="button" class="btn btn-primary">Submit</button>
+                </div>
+                
+            </div>
+            <div id="chat" ></div>
+            <input name="message" type="text">
+            <button id="send">Send</button>
+    </div>
+</body>
+</html>

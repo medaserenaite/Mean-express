@@ -1,0 +1,21 @@
+{
+  "name": "Dependenciese",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}
+
+
+//navigate to this folder with your command line, and then type npm install.
+//create an index.ejs file (and place it in the appropriate place based on the server) to load a page when you go to localhost:8000.
